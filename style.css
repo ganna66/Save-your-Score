@@ -422,105 +422,389 @@ main {
 }
 
 
-/* ================================
-   SMALL MOBILE
-================================ */
+/* =========================================
+   TABLET
+========================================= */
 
-@media (max-width: 400px) {
-
-  html {
-    font-size: 52%;
-  }
+@media (max-width: 900px) and (min-width: 601px) {
 
   body {
-    padding: 7px;
+    padding: 20px;
   }
 
   main {
-    height: 650px;
+    width: 90vw;
+    height: 55vw;
+
+    max-width: 900px;
+    max-height: 550px;
   }
-
-
-  /* PLAYERS */
 
   .player {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 7vw 4vw;
   }
+
+  .name {
+    font-size: 3.5rem;
+  }
+
+  .score {
+    font-size: 7rem;
+  }
+
+  .current {
+    width: 70%;
+  }
+
+  .dice {
+    height: 8rem;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  html {
+    font-size: 50%;
+  }
+
+  body {
+    min-height: 100svh;
+    height: auto;
+
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* =====================================
+     MAIN
+  ===================================== */
+
+  main {
+    position: relative;
+
+    width: 100%;
+    height: 430px;
+
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+  }
+
+
+  /* =====================================
+     PLAYERS
+  ===================================== */
+
+  .player {
+    width: 100%;
+
+    flex: 0 0 50%;
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    transition: all 0.75s;
+  }
+
+
+  /* =====================================
+     PLAYER 1
+  ===================================== */
 
   .player--0 {
-    padding-top: 65px;
+    justify-content: flex-start;
+
+    padding-top: 45px;
   }
 
+
+  /* =====================================
+     PLAYER 2
+  ===================================== */
+
   .player--1 {
-    padding-top: 50px;
+    justify-content: flex-start;
+
+    padding-top: 28px;
+  }
+
+
+  /* =====================================
+     PLAYER NAME
+  ===================================== */
+
+  .name {
+    position: relative;
+
+    font-size: 2.6rem;
+
+    line-height: 1;
+
+    margin-bottom: 5px;
+
+    letter-spacing: 1px;
+    word-spacing: 1px;
+
+    text-align: center;
+  }
+
+
+  /* =====================================
+     TOTAL SCORE
+  ===================================== */
+
+  .score {
+    font-size: 5.5rem;
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+  }
+
+
+  /* =====================================
+     CURRENT BOX
+  ===================================== */
+
+  .current {
+    width: 52%;
+
+    min-width: 120px;
+
+    padding: 11px 8px;
+
+    border-radius: 7px;
+
+    text-align: center;
+  }
+
+  .current-label {
+    font-size: 1.2rem;
+
+    line-height: 1;
+
+    margin-bottom: 6px;
+  }
+
+  .current-score {
+    font-size: 2.7rem;
+
+    line-height: 1;
+  }
+
+
+  /* =====================================
+     NEW GAME
+  ===================================== */
+
+  .btn--new {
+    position: absolute;
+
+    top: 10px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    font-size: 1.15rem;
+
+    padding: 6px 15px;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================
+     DICE
+  ===================================== */
+
+  .dice {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    height: 50px;
+
+    z-index: 100;
+  }
+
+
+  /* =====================================
+     ROLL DICE
+  ===================================== */
+
+  .btn--roll {
+    position: absolute;
+
+    top: auto;
+    bottom: 43px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    font-size: 1.15rem;
+
+    padding: 6px 15px;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================
+     HOLD
+  ===================================== */
+
+  .btn--hold {
+    position: absolute;
+
+    top: auto;
+    bottom: 8px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    font-size: 1.15rem;
+
+    padding: 6px 18px;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================
+     BUTTON ACTIVE
+  ===================================== */
+
+  .btn:active {
+    transform: translate(-50%, 3px);
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 350px) {
+
+  html {
+    font-size: 45%;
+  }
+
+  body {
+    padding: 5px;
+  }
+
+  main {
+    height: 420px;
+  }
+
+
+  /* PLAYER 1 */
+
+  .player--0 {
+    padding-top: 42px;
+  }
+
+
+  /* PLAYER 2 */
+
+  .player--1 {
+    padding-top: 25px;
   }
 
 
   /* NAME */
 
   .name {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
 
   /* SCORE */
 
   .score {
-    font-size: 5.5rem;
+    font-size: 5rem;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
 
   /* CURRENT */
 
   .current {
-    width: 55%;
-    min-width: 125px;
+    width: 50%;
+    min-width: 110px;
 
-    padding: 11px;
+    padding: 9px 7px;
   }
 
   .current-label {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .current-score {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
   }
 
 
   /* DICE */
 
   .dice {
-    height: 55px;
+    height: 45px;
   }
 
 
   /* BUTTONS */
 
   .btn--new {
-    top: 12px;
+    top: 8px;
 
-    font-size: 1.2rem;
+    font-size: 1.05rem;
 
-    padding: 6px 15px;
+    padding: 5px 13px;
   }
 
   .btn--roll {
-    bottom: 50px;
+    bottom: 40px;
 
-    font-size: 1.2rem;
+    font-size: 1.05rem;
 
-    padding: 6px 15px;
+    padding: 5px 13px;
   }
 
   .btn--hold {
-    bottom: 12px;
+    bottom: 7px;
 
-    font-size: 1.2rem;
+    font-size: 1.05rem;
 
-    padding: 6px 15px;
+    padding: 5px 15px;
   }
 }
