@@ -3,20 +3,17 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
-
   min-height: 100vh;
-
   color: #333;
 
   background-image: linear-gradient(
@@ -28,77 +25,122 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 20px;
 }
 
-/* LAYOUT */
+/* =========================
+   MAIN GAME
+========================= */
+
 main {
   position: relative;
-  width: 100rem;
-  height: 60rem;
+
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
-  filter: blur();
+
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
+
   overflow: hidden;
+
   display: flex;
 }
 
+/* =========================
+   PLAYERS
+========================= */
+
 .player {
-  flex: 50%;
-  padding: 9rem;
+  flex: 1;
+  min-width: 0;
+
+  padding: 90px 60px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   transition: all 0.75s;
-}
-
-/* ELEMENTS */
-.name {
-  position: relative;
-  font-size: 4rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  font-weight: 300;
-  margin-bottom: 1rem;
-}
-
-.score {
-  font-size: 8rem;
-  font-weight: 300;
-  color: #c7365f;
-  margin-bottom: auto;
 }
 
 .player--active {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
+/* =========================
+   NAME
+========================= */
+
+.name {
+  position: relative;
+
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+
+  margin-bottom: 1rem;
+
+  text-align: center;
+}
+
 .player--active .name {
   font-weight: 700;
 }
+
+/* =========================
+   TOTAL SCORE
+========================= */
+
+.score {
+  font-size: 8rem;
+  font-weight: 300;
+  color: #c7365f;
+
+  margin-bottom: auto;
+}
+
 .player--active .score {
   font-weight: 400;
+}
+
+/* =========================
+   CURRENT SCORE
+========================= */
+
+.current {
+  background-color: #c7365f;
+  opacity: 0.8;
+
+  border-radius: 9px;
+
+  color: #fff;
+
+  width: 65%;
+  max-width: 220px;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  transition: all 0.75s;
 }
 
 .player--active .current {
   opacity: 1;
 }
 
-.current {
-  background-color: #c7365f;
-  opacity: 0.8;
-  border-radius: 9px;
-  color: #fff;
-  width: 65%;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.75s;
-}
-
 .current-label {
   text-transform: uppercase;
+
   margin-bottom: 1rem;
+
   font-size: 1.7rem;
   color: #ddd;
 }
@@ -107,28 +149,43 @@ main {
   font-size: 3.5rem;
 }
 
-/* ABSOLUTE POSITIONED ELEMENTS */
+/* =========================
+   BUTTONS
+========================= */
+
 .btn {
   position: absolute;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   color: #444;
-  background: none;
+
+  background: rgba(255, 255, 255, 0.6);
+
   border: none;
+
   font-family: inherit;
   font-size: 1.8rem;
+
   text-transform: uppercase;
+
   cursor: pointer;
+
   font-weight: 400;
+
   transition: all 0.2s;
 
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
 
   padding: 0.7rem 2.5rem;
+
   border-radius: 50rem;
+
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+
+  white-space: nowrap;
 }
 
 .btn::first-letter {
@@ -137,20 +194,9 @@ main {
   margin-right: 0.7rem;
 }
 
-.btn--new {
-  top: 10px;
-  margin-bottom:30px;
-}
-.btn--roll {
-  top: 39.3rem;
-  margin-bottom:20px;
-}
-.btn--hold {
-  top: 46.1rem;
-}
-
 .btn:active {
   transform: translate(-50%, 3px);
+
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
@@ -158,14 +204,53 @@ main {
   outline: none;
 }
 
+/* =========================
+   NEW GAME
+========================= */
+
+.btn--new {
+  top: 30px;
+}
+
+/* =========================
+   DICE
+========================= */
+
 .dice {
   position: absolute;
+
   left: 50%;
-  top: 16.5rem;
-  transform: translateX(-50%);
-  height: 10rem;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 100px;
+  height: 100px;
+
+  object-fit: contain;
+
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
+
+/* =========================
+   ROLL
+========================= */
+
+.btn--roll {
+  top: 65%;
+}
+
+/* =========================
+   HOLD
+========================= */
+
+.btn--hold {
+  top: 77%;
+}
+
+/* =========================
+   WINNER
+========================= */
 
 .player--winner {
   background-color: #2f2f2f;
@@ -175,13 +260,21 @@ main {
   font-weight: 700;
   color: #c7365f;
 }
-/* ================================
+
+
+/* =========================================
    TABLET
-================================ */
+   901px → 601px
+========================================= */
 
 @media (max-width: 900px) {
+
+  html {
+    font-size: 58%;
+  }
+
   body {
-    padding: 20px;
+    padding: 15px;
   }
 
   main {
@@ -191,7 +284,7 @@ main {
   }
 
   .player {
-    padding: 7rem 4rem;
+    padding: 75px 35px;
   }
 
   .name {
@@ -204,268 +297,44 @@ main {
 
   .current {
     width: 70%;
-  }
-}
-
-
-/* ================================
-   MOBILE
-================================ */
-
-@media (max-width: 600px) {
-
-  html {
-    font-size: 55%;
-  }
-
-  body {
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
-
-    padding: 10px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* MAIN */
-
-  main {
-    position: relative;
-
-    width: 100%;
-    max-width: 420px;
-
-    height: 700px;
-
-    display: flex;
-    flex-direction: column;
-
-    overflow: hidden;
-
-    border-radius: 10px;
-  }
-
-
-  /* =================================
-     PLAYERS
-  ================================= */
-
-  .player {
-    width: 100%;
-    height: 50%;
-
-    flex: 0 0 50%;
-
-    padding: 70px 20px 30px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-
-  /* PLAYER 1 */
-
-  .player--0 {
-    padding-top: 70px;
-  }
-
-
-  /* PLAYER 2 */
-
-  .player--1 {
-    padding-top: 55px;
-  }
-
-
-  /* =================================
-     PLAYER NAME
-  ================================= */
-
-  .name {
-    font-size: 2.8rem;
-
-    line-height: 1.2;
-
-    margin-bottom: 5px;
-
-    text-align: center;
-  }
-
-
-  /* =================================
-     TOTAL SCORE
-  ================================= */
-
-  .score {
-    font-size: 6rem;
-
-    line-height: 1;
-
-    margin-bottom: 20px;
-  }
-
-
-  /* =================================
-     CURRENT
-  ================================= */
-
-  .current {
-    width: 55%;
-    min-width: 140px;
-
-    padding: 14px 10px;
-
-    border-radius: 7px;
+    padding: 1.5rem;
   }
 
   .current-label {
-    font-size: 1.3rem;
-
-    margin-bottom: 5px;
+    font-size: 1.5rem;
   }
 
   .current-score {
     font-size: 3rem;
   }
 
+  .dice {
+    width: 80px;
+    height: 80px;
+  }
 
-  /* =================================
-     NEW GAME
-  ================================= */
+  .btn {
+    font-size: 1.5rem;
+    padding: 0.6rem 1.8rem;
+  }
 
   .btn--new {
-    position: absolute;
-
-    top: 15px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 20;
-
-    font-size: 1.3rem;
-
-    padding: 7px 18px;
-
-    white-space: nowrap;
+    top: 20px;
   }
-
-
-  /* =================================
-     DICE
-  ================================= */
-
-  .dice {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    height: 60px;
-
-    z-index: 20;
-  }
-
-
-  /* =================================
-     ROLL BUTTON
-  ================================= */
 
   .btn--roll {
-    position: absolute;
-
-    left: 50%;
-    bottom: 55px;
-
-    top: auto;
-
-    transform: translateX(-50%);
-
-    z-index: 20;
-
-    font-size: 1.3rem;
-
-    padding: 7px 18px;
-
-    white-space: nowrap;
+    top: 65%;
   }
-
-
-  /* =================================
-     HOLD BUTTON
-  ================================= */
 
   .btn--hold {
-    position: absolute;
-
-    left: 50%;
-    bottom: 15px;
-
-    top: auto;
-
-    transform: translateX(-50%);
-
-    z-index: 20;
-
-    font-size: 1.3rem;
-
-    padding: 7px 18px;
-
-    white-space: nowrap;
-  }
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) and (min-width: 601px) {
-
-  body {
-    padding: 20px;
-  }
-
-  main {
-    width: 90vw;
-    height: 55vw;
-
-    max-width: 900px;
-    max-height: 550px;
-  }
-
-  .player {
-    padding: 7vw 4vw;
-  }
-
-  .name {
-    font-size: 3.5rem;
-  }
-
-  .score {
-    font-size: 7rem;
-  }
-
-  .current {
-    width: 70%;
-  }
-
-  .dice {
-    height: 8rem;
+    top: 78%;
   }
 }
 
 
 /* =========================================
    MOBILE
+   600px and below
 ========================================= */
 
 @media (max-width: 600px) {
@@ -476,248 +345,137 @@ main {
 
   body {
     min-height: 100svh;
-    height: auto;
 
-    padding: 8px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px;
   }
-
-  /* =====================================
-     MAIN
-  ===================================== */
 
   main {
-    position: relative;
-
     width: 100%;
-    height: 430px;
-
     max-width: 400px;
 
-    display: flex;
+    height: 650px;
+
     flex-direction: column;
 
-    overflow: hidden;
-
-    border-radius: 8px;
+    border-radius: 10px;
   }
 
-
-  /* =====================================
-     PLAYERS
-  ===================================== */
+  /* PLAYERS */
 
   .player {
     width: 100%;
 
     flex: 0 0 50%;
 
-    padding: 0;
+    min-height: 0;
 
-    display: flex;
-    flex-direction: column;
+    padding: 65px 20px 20px;
 
-    align-items: center;
-
-    transition: all 0.75s;
-  }
-
-
-  /* =====================================
-     PLAYER 1
-  ===================================== */
-
-  .player--0 {
     justify-content: flex-start;
-
-    padding-top: 45px;
   }
-
-
-  /* =====================================
-     PLAYER 2
-  ===================================== */
 
   .player--1 {
-    justify-content: flex-start;
-
-    padding-top: 28px;
+    padding-top: 35px;
   }
 
-
-  /* =====================================
-     PLAYER NAME
-  ===================================== */
+  /* NAME */
 
   .name {
-    position: relative;
+    font-size: 2.8rem;
 
-    font-size: 2.6rem;
-
-    line-height: 1;
+    line-height: 1.2;
 
     margin-bottom: 5px;
-
-    letter-spacing: 1px;
-    word-spacing: 1px;
-
-    text-align: center;
   }
 
-
-  /* =====================================
-     TOTAL SCORE
-  ===================================== */
+  /* SCORE */
 
   .score {
-    font-size: 5.5rem;
+    font-size: 6rem;
 
     line-height: 1;
 
     margin-bottom: 15px;
   }
 
-
-  /* =====================================
-     CURRENT BOX
-  ===================================== */
+  /* CURRENT */
 
   .current {
-    width: 52%;
+    width: 150px;
 
-    min-width: 120px;
-
-    padding: 11px 8px;
+    padding: 12px 8px;
 
     border-radius: 7px;
-
-    text-align: center;
   }
 
   .current-label {
     font-size: 1.2rem;
 
-    line-height: 1;
-
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .current-score {
-    font-size: 2.7rem;
-
-    line-height: 1;
+    font-size: 2.8rem;
   }
 
-
-  /* =====================================
-     NEW GAME
-  ===================================== */
+  /* NEW GAME */
 
   .btn--new {
-    position: absolute;
+    top: 12px;
 
-    top: 10px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 100;
-
-    font-size: 1.15rem;
+    font-size: 1.2rem;
 
     padding: 6px 15px;
 
-    white-space: nowrap;
+    z-index: 10;
   }
 
-
-  /* =====================================
-     DICE
-  ===================================== */
+  /* DICE */
 
   .dice {
-    position: absolute;
+    width: 55px;
+    height: 55px;
 
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    height: 50px;
-
-    z-index: 100;
+    z-index: 10;
   }
 
-
-  /* =====================================
-     ROLL DICE
-  ===================================== */
+  /* ROLL */
 
   .btn--roll {
-    position: absolute;
-
     top: auto;
-    bottom: 43px;
+    bottom: 55px;
 
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 100;
-
-    font-size: 1.15rem;
+    font-size: 1.2rem;
 
     padding: 6px 15px;
 
-    white-space: nowrap;
+    z-index: 10;
   }
 
-
-  /* =====================================
-     HOLD
-  ===================================== */
+  /* HOLD */
 
   .btn--hold {
-    position: absolute;
-
     top: auto;
-    bottom: 8px;
+    bottom: 15px;
 
-    left: 50%;
+    font-size: 1.2rem;
 
-    transform: translateX(-50%);
+    padding: 6px 17px;
 
-    z-index: 100;
-
-    font-size: 1.15rem;
-
-    padding: 6px 18px;
-
-    white-space: nowrap;
-  }
-
-
-  /* =====================================
-     BUTTON ACTIVE
-  ===================================== */
-
-  .btn:active {
-    transform: translate(-50%, 3px);
+    z-index: 10;
   }
 }
 
 
 /* =========================================
-   VERY SMALL PHONES
+   SMALL PHONES
+   400px and below
 ========================================= */
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
 
   html {
-    font-size: 45%;
+    font-size: 47%;
   }
 
   body {
@@ -725,47 +483,28 @@ main {
   }
 
   main {
-    height: 420px;
+    height: 600px;
   }
 
-
-  /* PLAYER 1 */
-
-  .player--0 {
-    padding-top: 42px;
+  .player {
+    padding-top: 60px;
   }
-
-
-  /* PLAYER 2 */
 
   .player--1 {
-    padding-top: 25px;
+    padding-top: 30px;
   }
-
-
-  /* NAME */
 
   .name {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
-
-
-  /* SCORE */
 
   .score {
-    font-size: 5rem;
-
-    margin-bottom: 12px;
+    font-size: 5.5rem;
   }
 
-
-  /* CURRENT */
-
   .current {
-    width: 50%;
-    min-width: 110px;
-
-    padding: 9px 7px;
+    width: 135px;
+    padding: 10px;
   }
 
   .current-label {
@@ -776,37 +515,66 @@ main {
     font-size: 2.5rem;
   }
 
-
-  /* DICE */
-
   .dice {
-    height: 45px;
+    width: 50px;
+    height: 50px;
   }
 
-
-  /* BUTTONS */
+  .btn {
+    font-size: 1.1rem;
+  }
 
   .btn--new {
-    top: 8px;
-
-    font-size: 1.05rem;
-
-    padding: 5px 13px;
+    top: 10px;
   }
 
   .btn--roll {
-    bottom: 40px;
-
-    font-size: 1.05rem;
-
-    padding: 5px 13px;
+    bottom: 50px;
   }
 
   .btn--hold {
-    bottom: 7px;
+    bottom: 12px;
+  }
+}
 
-    font-size: 1.05rem;
 
-    padding: 5px 15px;
+/* =========================================
+   VERY SMALL PHONES
+   350px and below
+========================================= */
+
+@media (max-width: 350px) {
+
+  main {
+    height: 560px;
+  }
+
+  .player {
+    padding-top: 55px;
+  }
+
+  .player--1 {
+    padding-top: 25px;
+  }
+
+  .name {
+    font-size: 2.3rem;
+  }
+
+  .score {
+    font-size: 5rem;
+  }
+
+  .current {
+    width: 125px;
+  }
+
+  .dice {
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn--roll {
+    bottom: 45px;
   }
 }
