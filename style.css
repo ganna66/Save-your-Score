@@ -578,3 +578,170 @@ main {
     bottom: 45px;
   }
 }
+
+
+@media (max-width: 600px) {
+
+  html {
+    font-size: 50%;
+  }
+
+  body {
+    min-height: 100svh;
+    padding: 10px;
+  }
+
+  main {
+    width: 100%;
+    max-width: 400px;
+    height: 700px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  /* =========================
+     PLAYERS
+  ========================= */
+
+  .player {
+    width: 100%;
+    flex: 0 0 50%;
+
+    padding: 70px 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .player--1 {
+    padding-top: 50px;
+  }
+
+  /* =========================
+     NAME
+  ========================= */
+
+  .name {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* =========================
+     SCORE
+  ========================= */
+
+  .score {
+    font-size: 6rem;
+    line-height: 1;
+
+    margin-bottom: 30px;
+  }
+
+  /* =========================
+     CURRENT CARD
+  ========================= */
+
+  .current {
+    width: 160px;
+    min-width: 160px;
+
+    padding: 15px 10px;
+
+    border-radius: 8px;
+
+    margin-top: 5px;
+  }
+
+  .current-label {
+    font-size: 1.3rem;
+    margin-bottom: 7px;
+  }
+
+  .current-score {
+    font-size: 3rem;
+  }
+
+  /* =========================
+     NEW GAME
+  ========================= */
+
+  .btn--new {
+    top: 15px;
+
+    font-size: 1.25rem;
+
+    padding: 7px 18px;
+
+    z-index: 20;
+  }
+
+  /* =========================
+     DICE
+  ========================= */
+
+  .dice {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    z-index: 20;
+  }
+
+  /* =========================
+     ROLL DICE
+  ========================= */
+
+  .btn--roll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 70px;
+
+    top: auto;
+
+    transform: translateX(-50%);
+
+    font-size: 1.25rem;
+
+    padding: 7px 18px;
+
+    z-index: 20;
+  }
+
+  /* =========================
+     HOLD
+  ========================= */
+
+  .btn--hold {
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    top: auto;
+
+    transform: translateX(-50%);
+
+    font-size: 1.25rem;
+
+    padding: 7px 18px;
+
+    z-index: 20;
+  }
+}
